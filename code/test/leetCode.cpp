@@ -2,11 +2,23 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <set>
+#include <unordered_set>
 #include <stack>
 #include <queue>
 #include <algorithm>
 using namespace std;
-
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};
+struct TreeNode {
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
 // 两数之和
 vector<int> twoSum(vector<int>& nums, int target)
 {
@@ -29,6 +41,37 @@ vector<int> twoSum(vector<int>& nums, int target)
         ++n;
     }
     return index;
+}
+// 两数之和
+ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
+{
+    if (l1 == nullptr || l2 == nullptr) {
+        return nullptr;
+    }
+    ListNode* res= new ListNode(0);
+    ListNode* curNode = res;
+    ListNode* p1 = l1;
+    ListNode* p2 = l2;
+    int carry = 0;
+    while (p1 || p2) {
+        int num1 = p1 ? p1->val : 0;
+        int num2 = p2 ? p2->val : 0;
+        int sum = num1 + num2 + carry;
+        carry = sum / 10;
+       // curNode->val = sum % 10;
+        curNode->next = new ListNode(sum % 10);
+        curNode = curNode->next;
+        if (p1) {
+            p1 = p1->next;
+        }
+        if (p2) {
+            p2 = p2->next;
+        }
+    }
+    if (carry == 1) {
+        curNode->next = new ListNode(1);
+    }
+    return res->next;
 }
 // 最长连续公共子序列
 int longestContinueCommonSubsequence(string & str1, string &str2)
@@ -72,7 +115,6 @@ int longestContinueCommonSubsequence(string & str1, string &str2)
 int longestCommonSubsequence(string text1, string text2)
 {
     vector<vector<int>> dp(text1.size() + 1, vector<int>(text2.size() + 1, 0));
-    int ans = 0;
     for (int i = text1.size() - 1; i >=0; --i) {
         for (int j = text2.size() - 1; j >=0; --j) {
             if (text1[i] == text2[j]) {
@@ -86,7 +128,7 @@ int longestCommonSubsequence(string text1, string text2)
 }
 // 最长公共子数组
 // 给两个整数数组 A 和 B ，返回两个数组中公共的、长度最长的子数组的长度。
-// 输入:
+// 输入:nullptr
 // A: [1,2,3,2,1]
 // B: [3,2,1,4,7]
 // 输出: 3
@@ -105,6 +147,81 @@ int findLength(vector<int>& A, vector<int>& B)
         }
     }
     return ans;
+}
+// 最长上升子序列
+// 给定一个无序的整数数组，找到其中最长上升子序列的长度。
+// 示例:
+// 输入: [10,9,2,5,3,7,101,18]
+// 输出: 4
+// 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
+int lengthOfLIS(vector<int>& nums) {
+    // 动态规划 + 二分查找
+     if (nums.size() <= 1) {
+        return nums.size();
+    }
+    int len = nums.size();
+    vector<int> help(len, 0);
+    int res = 0;
+    for (int val : nums) {
+        int i = 0;
+        int j = res;
+        while (i < j) {
+            int m = (i + j) / 2;
+            if (help[m] < val) {
+                i = m + 1;
+            } else {
+                j = m;
+            }
+        }
+        help[i] = val;
+        res = max(res, i + 1);
+    }
+    return res;
+    /*
+    // 动态规划
+    if (nums.size() <= 1) {
+        return nums.size();
+    }
+    int len = nums.size();
+    vector<int> dp(len, 0);
+    int res = 1;
+    int maxVal = 0;
+    dp[0] = 1;
+    for (int i = 1; i < len; ++i) {
+        maxVal = 0;
+        for (int j = 0; j < i; ++j) {
+            if (nums[i] > nums[j]) {
+                maxVal = max(maxVal, dp[j]);
+            }
+        }
+        dp[i] = maxVal + 1;
+        res = max(res, dp[i]);
+    }
+   return res;
+   */
+}
+//  最长连续递增序列
+// 给定一个未经排序的整数数组，找到最长且连续的的递增序列。
+// 示例 1:
+// 输入: [1,3,5,4,7]
+// 输出: 3
+// 解释: 最长连续递增序列是 [1,3,5], 长度为3。
+// 尽管 [1,3,5,7] 也是升序的子序列, 但它不是连续的，因为5和7在原数组里被4隔开。
+int findLengthOfLCIS(vector<int>& nums) {
+    if (nums.size() <= 1) {
+        return nums.size();
+    }
+    int res = 1;
+    int num = 1;
+    for (int i = 1; i < nums.size(); ++i) {
+        if (nums[i] > nums[i - 1]) {
+            ++num;
+        } else {
+            num = 1;
+        }
+        res = num > res ? num : res;
+    }
+    return res;
 }
 // 最长回文字符串
 // 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
@@ -177,6 +294,35 @@ int longestPalindromeSubseq(string s)
     }
     return dp[0][len - 1];
 }
+// 最长无重复子串
+// 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+// 示例 1:
+// 输入: "abcabcbb"
+// 输出: 3
+// 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+int lengthOfLongestSubstring(string s)
+{
+    if (s.length() <= 1) {
+        return s.length();
+    }
+    unordered_set<char> str;
+    int res = 1;
+    int num = 0;
+    int i = 0;
+    int j = 0;
+    while (i < s.length() && j < s.length()) {
+        if (str.find(s[j]) == str.end()) {
+            str.insert(s[j]);
+            ++j;
+            num = j - i;
+            res = res > num ? res : num;
+        } else {
+            str.erase(s[i]);
+            ++i;
+        }
+    }
+    return res;
+}
 // 接雨水
 // 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
 // 输入: [0,1,0,2,1,0,1,3,2,1,2,1]
@@ -200,12 +346,6 @@ int trap(vector<int>& height)
     return ans;
 }
 // 二叉树遍历
-struct TreeNode {
-  int val;
-  TreeNode *left;
-  TreeNode *right;
-  TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
 // 中序遍历
 vector<int> inorderTraversal(TreeNode* root)
 {
@@ -321,7 +461,38 @@ vector<int> PrintFromTopToBottom(TreeNode* root)
     }
     return res;
 }
-
+/*
+// 返回二维数组
+vector<vector<int>> levelOrder(TreeNode* root)
+{
+    vector<vector<int>> res;
+    vector<int> level;
+    if (root == nullptr) {
+        return res;
+    }
+    TreeNode* curNode = root;
+    queue<TreeNode*> q;
+    int width = 0;
+    q.push(curNode);
+    while (!q.empty()) {
+        width = q.size();
+        for (int i = 0; i < width; ++i) {
+            curNode = q.front();
+            level.push_back(curNode->val);
+            if (curNode->left != nullptr) {
+                q.push(curNode->left);
+            }
+            if (curNode->right != nullptr) {
+                q.push(curNode->right);
+            }
+            q.pop();
+        }
+        res.push_back(level);
+        level.clear();
+    }
+    return res;
+}
+*/
 int main()
 {
     vector<int> data = {2, 7, 11, 15};
@@ -346,5 +517,9 @@ int main()
     cout << "接雨水" << endl;
     vector<int> height = {0,1,0,2,1,0,1,3,2,1,2,1};
     cout << trap(height) << endl;
+    vector<int> lsis{1,3,5,7};
+    cout << findLengthOfLCIS(lsis) << endl;
+    cout << "最长无重复子串" << endl;
+    cout << lengthOfLongestSubstring("dvdf") << endl;
     return 0;
 }

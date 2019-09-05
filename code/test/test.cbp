@@ -32,7 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="alibb.cpp" />
+		<Unit filename="cvte905.cpp" />
+		<Unit filename="didi0827.cpp" />
+		<Unit filename="gld_0826_1.cpp" />
+		<Unit filename="jd.cpp" />
+		<Unit filename="jd2.cpp" />
+		<Unit filename="leetCode.cpp" />
+		<Unit filename="lianbiaoquchong.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="quit_sort.cpp" />
+		<Unit filename="tx91.cpp" />
+		<Unit filename="tx912.cpp" />
+		<Unit filename="yjing829.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
