@@ -32,19 +32,31 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="aiqiyi0908.cpp" />
 		<Unit filename="alibb.cpp" />
+		<Unit filename="bitedance0915.cpp" />
 		<Unit filename="cvte905.cpp" />
 		<Unit filename="didi0827.cpp" />
 		<Unit filename="gld_0826_1.cpp" />
+		<Unit filename="huanjushidai.cpp" />
+		<Unit filename="huanushidai.cpp" />
 		<Unit filename="jd.cpp" />
 		<Unit filename="jd2.cpp" />
 		<Unit filename="leetCode.cpp" />
+		<Unit filename="leetCode_backTrace.cpp" />
 		<Unit filename="lianbiaoquchong.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="oppo0908.cpp" />
 		<Unit filename="quit_sort.cpp" />
 		<Unit filename="tx91.cpp" />
 		<Unit filename="tx912.cpp" />
+		<Unit filename="wangyihuyu0907.cpp" />
+		<Unit filename="yitukeji0906.cpp" />
 		<Unit filename="yjing829.cpp" />
+		<Unit filename="yuncong0912_1.cpp" />
+		<Unit filename="yuncong0912_2.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
