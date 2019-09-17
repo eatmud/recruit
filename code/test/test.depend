@@ -31,11 +31,20 @@
 
 1566650370 source:e:\c++\recruit\code\test\jd2.cpp
 
-1568516812 source:e:\c++\recruit\code\test\leetcode.cpp
+1568690258 source:e:\c++\recruit\code\test\leetcode.cpp
+	<iostream>
+	<vector>
+	<string>
+	<map>
+	<set>
+	<unordered_set>
+	<stack>
+	<queue>
+	<algorithm>
 
 1566962295 source:e:\c++\recruit\code\test\lianbiaoquchong.cpp
 
-1568174898 source:e:\c++\recruit\code\test\main.cpp
+1568690084 source:e:\c++\recruit\code\test\main.cpp
 
 1568450383 source:e:\c++\recruit\code\test\quit_sort.cpp
 
@@ -67,15 +76,7 @@
 
 1568534637 source:e:\c++\recruit\code\test\leetcode_backtrace.cpp
 
-1568540884 source:e:\c++\recruit\code\test\bitedance0915.cpp
-	<iostream>
-	<vector>
-	<string>
-	<map>
-	<set>
-	<unordered_set>
-	<stack>
-	<queue>
-	<algorithm>
-	<iterator>
+1568556971 source:e:\c++\recruit\code\test\bitedance0915.cpp
+
+1568647615 source:e:\c++\recruit\code\test\kuaishou0916.cpp
 

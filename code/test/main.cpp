@@ -265,3 +265,23 @@
 ////    cout << endl;
 ////    return 0;
 ////}
+
+//#include <iostream>
+//using namespace std;
+//int main()
+//{
+////    int a;
+////    int b;
+////    a = 1;
+////    b = 32;
+////    cout << (a << b) << (1 << 32) << endl;
+//    int bb[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+//    int (*cc)[3];
+//    cc = bb;
+//    cout << *(*(cc + 1) + 1 )<< endl;
+////    int a,b,c,d;
+////    a = b = c = d = 1;
+////    a = ++b > 1 || ++c > 1 && ++d > 1;
+////    printf("%d%d%d%d\n",a,b,c,d);
+//    return 0;
+//}
