@@ -35,8 +35,10 @@
 		<Unit filename="aiqiyi0908.cpp" />
 		<Unit filename="alibb.cpp" />
 		<Unit filename="bitedance0915.cpp" />
+		<Unit filename="changchunajingmi.cpp" />
 		<Unit filename="cvte905.cpp" />
 		<Unit filename="didi0827.cpp" />
+		<Unit filename="dijkstra.cpp" />
 		<Unit filename="gld_0826_1.cpp" />
 		<Unit filename="huanjushidai.cpp" />
 		<Unit filename="huanushidai.cpp" />
@@ -49,6 +51,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="oppo0908.cpp" />
 		<Unit filename="quit_sort.cpp" />
+		<Unit filename="shenxinfu0918.cpp" />
 		<Unit filename="tx91.cpp" />
 		<Unit filename="tx912.cpp" />
 		<Unit filename="wangyihuyu0907.cpp" />

@@ -31,16 +31,7 @@
 
 1566650370 source:e:\c++\recruit\code\test\jd2.cpp
 
-1568690258 source:e:\c++\recruit\code\test\leetcode.cpp
-	<iostream>
-	<vector>
-	<string>
-	<map>
-	<set>
-	<unordered_set>
-	<stack>
-	<queue>
-	<algorithm>
+1569205251 source:e:\c++\recruit\code\test\leetcode.cpp
 
 1566962295 source:e:\c++\recruit\code\test\lianbiaoquchong.cpp
 
@@ -74,9 +65,16 @@
 
 1568286610 source:e:\c++\recruit\code\test\yuncong0912_1.cpp
 
-1568534637 source:e:\c++\recruit\code\test\leetcode_backtrace.cpp
+1569205258 source:e:\c++\recruit\code\test\leetcode_backtrace.cpp
 
 1568556971 source:e:\c++\recruit\code\test\bitedance0915.cpp
 
 1568647615 source:e:\c++\recruit\code\test\kuaishou0916.cpp
+
+1569126659 source:e:\c++\recruit\code\test\shenxinfu0918.cpp
+
+1569205285 source:e:\c++\recruit\code\test\changchunajingmi.cpp
+	<iostream>
+	<string>
+	<string.h>
 
